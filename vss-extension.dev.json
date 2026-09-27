@@ -1,0 +1,37 @@
+{
+  "manifestVersion": 1,
+  "id": "child-generator-dev",
+  "name": "Child Item Generator (Dev)",
+  "version": "0.1.0",
+  "publisher": "xerillio",
+  "public": false,
+  "description": "DEV BUILD - loads from the local Vite dev server (https://localhost:3000) instead of packaged files. Install alongside the real extension in a test organization only.",
+  "baseUri": "https://localhost:3000",
+  "categories": [
+    "Plan and track"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "files": [
+    {
+      "path": "project-settings.dev.html",
+      "addressable": true
+    }
+  ],
+  "contributions": [
+    {
+      "id": "project-settings",
+      "type": "ms.vss-web.hub",
+      "targets": [
+        "ms.vss-web.project-admin-hub-group"
+      ],
+      "properties": {
+        "name": "Child Item Generator (Dev)",
+        "uri": "project-settings.dev.html"
+      }
+    }
+  ]
+}

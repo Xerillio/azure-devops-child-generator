@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child Item Generator Settings (dev)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background: transparent;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      Dev-only entry point: loaded through the Vite dev server (npm run dev),
+      which transforms/HMRs the TSX source directly. Referenced by
+      vss-extension.dev.json via the manifest's "baseUri" override so the
+      extension loads this from https://localhost instead of the packaged
+      dist/ bundle. Not included in the production manifest/package.
+    -->
+    <script type="module" src="/src/pages/project-settings/index.tsx"></script>
+  </body>
+</html>

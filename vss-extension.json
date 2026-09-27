@@ -1,0 +1,40 @@
+{
+  "manifestVersion": 1,
+  "id": "child-generator",
+  "name": "Child Item Generator",
+  "version": "0.1.0",
+  "publisher": "xerillio",
+  "public": false,
+  "description": "Generate child work items from configurable templates defined in project settings.",
+  "categories": [
+    "Plan and track"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "files": [
+    {
+      "path": "project-settings.html",
+      "addressable": true
+    },
+    {
+      "path": "dist",
+      "addressable": true
+    }
+  ],
+  "contributions": [
+    {
+      "id": "project-settings",
+      "type": "ms.vss-web.hub",
+      "targets": [
+        "ms.vss-web.project-admin-hub-group"
+      ],
+      "properties": {
+        "name": "Child Item Generator",
+        "uri": "project-settings.html"
+      }
+    }
+  ]
+}
