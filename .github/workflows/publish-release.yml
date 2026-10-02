@@ -1,0 +1,85 @@
+name: Publish release extension
+
+on:
+  release:
+    types: [published]
+
+env:
+  HUSKY: 0
+
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    environment: marketplace-publish
+    permissions:
+      contents: read
+    env:
+      PUBLISHER_ID: xerillio
+      MANIFEST: vss-extension.release.json
+      VERSION: ${{ github.event.release.tag_name }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Use Node.js 24 (LTS)
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Validate release version
+        shell: bash
+        run: |
+          if [[ ! "${VERSION}" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag '${VERSION}' is not a valid 3-part semver version"
+            echo "Example: \"v1.3.10\" (the leading \"v\" is optional)."
+            exit 1
+          fi
+
+          VERSION="${VERSION#v}"
+          echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
+          
+          echo "Resolved extension version: ${VERSION}"
+
+      - name: Package extension
+        id: packaging
+        shell: bash
+        run: |
+          npx tfx-cli extension create \
+            --manifests "$MANIFEST" \
+            --publisher "$PUBLISHER_ID" \
+            --override "{\"version\":\"${VERSION}\"}" \
+            --output-path .
+
+          VSIX_PATH=$(ls -1 *.vsix | head -n 1)
+          echo "VSIX_PATH=${VSIX_PATH}" >> "$GITHUB_ENV"
+          echo "VSIX_PATH=${VSIX_PATH}" >> "$GITHUB_OUTPUT"
+
+          echo "Created package: ${VSIX_PATH}"
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ steps.packaging.outputs.VSIX_PATH }}
+          retention-days: 30
+          archive: false
+
+      - name: Publish extension to Visual Studio Marketplace
+        shell: bash
+        env:
+          MARKETPLACE_TOKEN: ${{ secrets.MARKETPLACE_TOKEN }}
+        run: |
+          set +x
+
+          if [ -z "$MARKETPLACE_TOKEN" ]; then
+            echo "MARKETPLACE_TOKEN is not configured"
+            exit 1
+          fi
+
+          npx tfx-cli extension publish \
+            --vsix "$VSIX_PATH" \
+            --token "$MARKETPLACE_TOKEN" \
+            --service-url https://marketplace.visualstudio.com \
+            --no-prompt \
+            --no-wait-validation
