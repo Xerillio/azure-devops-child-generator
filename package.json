@@ -1,4 +1,4 @@
-  {
+{
   "name": "azure-devops-child-generator",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,8 @@
     "lint:fix": "eslint . --fix",
     "package": "npm run build && tfx extension create --manifest-globs vss-extension.json",
     "package:dev": "tfx extension create --manifest-globs vss-extension.dev.json",
-    "validate": "npm run lint && npm run typecheck && npm run test:coverage && npm run build"
+    "validate": "npm run lint && npm run typecheck && npm run test:coverage && npm run build",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
@@ -38,6 +39,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.12.0",
+    "husky": "^9.1.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
@@ -54,5 +56,9 @@
   },
   "jestSonar": {
     "reportPath": "coverage"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "unrs-resolver@1.12.2": true
   }
 }
