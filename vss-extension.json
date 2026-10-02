@@ -20,6 +20,10 @@
       "addressable": true
     },
     {
+      "path": "work-item-menu.html",
+      "addressable": true
+    },
+    {
       "path": "dist",
       "addressable": true
     }
@@ -34,6 +38,18 @@
       "properties": {
         "name": "Child Item Generator",
         "uri": "project-settings.html"
+      }
+    },
+    {
+      "id": "generate-child-items-menu",
+      "type": "ms.vss-web.action",
+      "targets": [
+        "ms.vss-work-web.work-item-context-menu"
+      ],
+      "properties": {
+        "text": "Generate child items",
+        "title": "Generate child items",
+        "uri": "work-item-menu.html"
       }
     }
   ]

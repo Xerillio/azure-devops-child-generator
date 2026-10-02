@@ -19,6 +19,10 @@
     {
       "path": "project-settings.dev.html",
       "addressable": true
+    },
+    {
+      "path": "work-item-menu.dev.html",
+      "addressable": true
     }
   ],
   "contributions": [
@@ -31,6 +35,18 @@
       "properties": {
         "name": "Child Item Generator (Dev)",
         "uri": "project-settings.dev.html"
+      }
+    },
+    {
+      "id": "generate-child-items-menu",
+      "type": "ms.vss-web.action",
+      "targets": [
+        "ms.vss-work-web.work-item-context-menu"
+      ],
+      "properties": {
+        "text": "Generate child items",
+        "title": "Generate child items",
+        "uri": "work-item-menu.dev.html"
       }
     }
   ]
