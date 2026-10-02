@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/vss-extension",
   "manifestVersion": 1,
   "id": "child-generator-dev",
   "name": "Child Item Generator (Dev)",
@@ -8,7 +9,7 @@
   "description": "DEV BUILD - loads from the local Vite dev server (https://localhost:3000) instead of packaged files. Install alongside the real extension in a test organization only.",
   "baseUri": "https://localhost:3000",
   "categories": [
-    "Plan and track"
+    "Azure Boards"
   ],
   "targets": [
     {
@@ -44,7 +45,7 @@
         "ms.vss-work-web.work-item-context-menu"
       ],
       "properties": {
-        "text": "Generate child items",
+        "text": "Generate child items (Dev)",
         "title": "Generate child items",
         "uri": "work-item-menu.dev.html"
       }

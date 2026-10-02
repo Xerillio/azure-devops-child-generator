@@ -1,13 +1,14 @@
 {
+  "$schema": "https://json.schemastore.org/vss-extension",
   "manifestVersion": 1,
   "id": "child-generator",
   "name": "Child Item Generator",
   "version": "0.1.0",
   "publisher": "xerillio",
-  "public": false,
+  "public": true,
   "description": "Generate child work items from configurable templates defined in project settings.",
   "categories": [
-    "Plan and track"
+    "Azure Boards"
   ],
   "targets": [
     {
