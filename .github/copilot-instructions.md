@@ -33,6 +33,9 @@ Always use `npm run validate` to validate changes.
   4. contribution + `files` entry in both `vss-extension.json` and `vss-extension.dev.json`
 - Build output uses fixed non-hashed entry filenames (`[name].js`) so the static HTML shells can reference stable paths; Vite uses `rolldownOptions`.
 - The dev manifest is a separate extension (`child-generator-dev`) with `baseUri` `https://localhost:3000`; it only needs republishing when `vss-extension.dev.json` changes.
+- The extension currently adds the following pages/components:
+  1. `src\pages\project-settings`: a page in the project settings where you can configure templates and when the templates should be used to generate child items.
+  2. `src\pages\work-item-menu`: a context menu item on work items. When clicked it will generate child items based on the configured templates.
 
 ## Conventions
 
