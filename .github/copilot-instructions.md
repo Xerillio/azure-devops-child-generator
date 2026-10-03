@@ -15,6 +15,14 @@ Azure DevOps extension (React 19 + TypeScript, Vite, Jest) that will generate ch
 
 Always use `npm run validate` to validate changes.
 
+## Tech stack
+
+- **UI:** React + TypeScript
+- **Build/dev server:** Vite
+- **Tests:** Jest + Testing Library (with coverage)
+- **Linting:** ESLint (flat config) + typescript-eslint
+- **Packaging/publishing:** `tfx-cli`
+
 ## Architecture
 
 - Each Azure DevOps contribution is its own page under `src/pages/<name>/` with `index.tsx` (calls `SDK.init`/`SDK.ready`, mounts React root) and, for UI pages, `App.tsx`. `work-item-menu` is an action with no UI (only `index.tsx`).
