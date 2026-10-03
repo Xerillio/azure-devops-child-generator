@@ -4,7 +4,7 @@
   "id": "child-generator-dev",
   "name": "Child Item Generator (Dev)",
   "version": "0.1.0",
-  "publisher": "xerillio",
+  "publisher": "xerillio-dev",
   "public": false,
   "description": "DEV BUILD - loads from the local Vite dev server (https://localhost:3000) instead of packaged files. Install alongside the real extension in a test organization only.",
   "baseUri": "https://localhost:3000",
