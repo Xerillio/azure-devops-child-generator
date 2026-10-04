@@ -39,6 +39,7 @@ Always use `npm run validate` to validate changes.
 
 ## Conventions
 
+- Use `@fluentui/react-components` and `"@fluentui/react-icons` for UI components in the extension, including project settings and any future panels or dialogs.
 - `typescript` is intentionally pinned to 6.0.3 (TS 7 unsupported by typescript-eslint/tooling); don't bump it.
 - Jest uses `babel-jest` (`babel.config.cjs`, used only for tests), jsdom, and `tests/setupTests.ts` (jest-dom). Tests are colocated as `src/**/*.test.{ts,tsx}` — other locations aren't matched.
 - ESLint is flat config (`eslint.config.js`) with typescript-eslint and React/Hooks plugins; the project is ESM (`"type": "module"`).
