@@ -48,10 +48,10 @@ override**:
 2. **One-time setup:** package and publish the *dev* manifest to a test organization/publisher:
    ```bash
    npm run package:dev
-   tfx extension publish --manifest-globs vss-extension.dev.json --token <PAT>
+   tfx extension publish --manifests vss-extension.dev.json --token <PAT>
    ```
    `vss-extension.dev.json` declares a separate extension id (`child-generator-dev`) with
-   `baseUri` set to `https://localhost:3000`, so its hub loads `project-settings.dev.html`
+   `baseUri` set to `https://localhost:3000`, so its hub loads `/src/contributions/project-settings/index.dev.html`
    directly from your local dev server instead of packaged files.
 3. Install the dev extension once in a test organization (Shared or private install).
 4. The first time you open the page, your browser will warn about the self-signed
@@ -60,7 +60,7 @@ override**:
    to see changes — no republishing needed. Only republish the dev manifest if you change
    `vss-extension.dev.json` itself (e.g. add a new contribution).
 
-Replace the placeholder publisher value in `vss-extension.json` / `vss-extension.dev.json` with
+Replace the placeholder publisher value in `vss-extension.release.json` / `vss-extension.dev.json` with
 your real Azure DevOps extension publisher before publishing either manifest.
 
 ## Testing

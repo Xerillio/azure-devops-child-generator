@@ -7,7 +7,7 @@ Azure DevOps extension (React 19 + TypeScript, Vite, Jest) that will generate ch
 - `npm run dev` – Vite HTTPS dev server on fixed port 3000 (`strictPort`; must match `baseUri` in `vss-extension.dev.json`)
 - `npm run build` – clean + `tsc --noEmit` + `vite build` into `dist/`
 - `npm run typecheck`, `npm run lint` (`lint:fix` to autofix)
-- `npm test` – Jest; single test: `npx jest src/pages/project-settings/App.test.tsx -t "<test name>"`
+- `npm test` – Jest; single test: `npx jest src/contributions/project-settings/App.test.tsx -t "<test name>"`
 - `npm run test:coverage` – coverage + sonar report (used by CI, then SonarCloud)
 - `npm run validate` – lint + typecheck + coverage + build
 - `npm run package` / `package:dev` – create `.vsix` with `tfx`
@@ -25,17 +25,17 @@ Always use `npm run validate` to validate changes.
 
 ## Architecture
 
-- Each Azure DevOps contribution is its own page under `src/pages/<name>/` with `index.tsx` (calls `SDK.init`/`SDK.ready`, mounts React root) and, for UI pages, `App.tsx`. `work-item-menu` is an action with no UI (only `index.tsx`).
+- Each Azure DevOps contribution is its own page under `src/contributions/<name>/` with `index.tsx` (calls `SDK.init`/`SDK.ready`, mounts React root) and, for UI pages, `App.tsx`. `work-item-menu` is an action with no UI (only `index.tsx`).
 - Adding a contribution touches several files that must stay in sync:
-  1. `src/pages/<name>/index.tsx` (+ `App.tsx`)
+  1. `src/contributions/<name>/index.tsx` (+ `App.tsx`)
   2. entry in the `pages` map in `vite.config.ts`
-  3. `<name>.html` (loads `./dist/<name>.js`) and `<name>.dev.html` (loads TSX source for HMR)
-  4. contribution + `files` entry in both `vss-extension.json` and `vss-extension.dev.json`
+  3. `<name>.html` (loads `./dist/contributions/<name>.js`) and `<name>.dev.html` (loads TSX source for HMR)
+  4. contribution + `files` entry in both `vss-extension.release.json` and `vss-extension.dev.json`
 - Build output uses fixed non-hashed entry filenames (`[name].js`) so the static HTML shells can reference stable paths; Vite uses `rolldownOptions`.
 - The dev manifest is a separate extension (`child-generator-dev`) with `baseUri` `https://localhost:3000`; it only needs republishing when `vss-extension.dev.json` changes.
-- The extension currently adds the following pages/components:
-  1. `src\pages\project-settings`: a page in the project settings where you can configure templates and when the templates should be used to generate child items.
-  2. `src\pages\work-item-menu`: a context menu item on work items. When clicked it will generate child items based on the configured templates.
+- The extension currently adds the following pages/contributions:
+  1. `src\contributions\project-settings`: a page in the project settings where you can configure templates and when the templates should be used to generate child items.
+  2. `src\contributions\work-item-menu`: a context menu item on work items. When clicked it will generate child items based on the configured templates.
 
 ## Conventions
 
