@@ -47,12 +47,21 @@ function Root() {
   return <App theme={theme} />;
 }
 
-await SDK.init({ applyTheme: true });
+await SDK.init({ applyTheme: true, loaded: false });
 const container = document.getElementById("root");
 
-if (container) {
-  createRoot(container).render(<Root />);
+try {
+  if (container) {
+    createRoot(container).render(<Root />);
+    await SDK.notifyLoadSucceeded();
+  }
+  else {
+    await SDK.notifyLoadFailed("Could not locate 'root' element.");
+  }
 }
-else {
-  console.error("Could not locate 'root' element.");
+catch (err) {
+  if (err instanceof Error) {
+    await SDK.notifyLoadFailed(err);
+  }
+  console.error(err);
 }
