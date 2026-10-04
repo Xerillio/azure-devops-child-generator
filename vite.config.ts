@@ -6,8 +6,8 @@ import { defineConfig } from "vite";
 // Each Azure DevOps contribution ("hub"/page) gets its own entry here.
 // Add a new key + path if a new contribution is introduced.
 const pages = {
-  "project-settings": resolve(import.meta.dirname, "src/pages/project-settings/index.tsx"),
-  "work-item-menu": resolve(import.meta.dirname, "src/pages/work-item-menu/index.tsx"),
+  "contributions/project-settings": resolve(import.meta.dirname, "src/contributions/project-settings/index.tsx"),
+  "contributions/work-item-menu": resolve(import.meta.dirname, "src/contributions/work-item-menu/index.tsx"),
 };
 
 // Fixed port so it matches the localhost URI in vss-extension.dev.json.

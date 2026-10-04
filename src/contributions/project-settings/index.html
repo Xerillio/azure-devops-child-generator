@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generate child items (dev)</title>
+    <title>Child Item Generator Settings</title>
     <style>
       html,
       body {
@@ -12,9 +12,17 @@
         min-height: 100%;
         background: transparent;
       }
+
+      #root {
+        height: 100vh;
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
-    <script type="module" src="/src/pages/work-item-menu/index.tsx"></script>
+    <div id="root"></div>
+    <script type="module" src="./dist/contributions/project-settings.js"></script>
+    <!-- Output filename is fixed via vite.config.ts -->
+
   </body>
 </html>

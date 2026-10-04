@@ -3,7 +3,7 @@
   "manifestVersion": 1,
   "id": "child-generator-dev",
   "name": "Child Item Generator (Dev)",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "publisher": "xerillio-dev",
   "public": false,
   "description": "DEV BUILD - loads from the local Vite dev server (https://localhost:3000) instead of packaged files. Install alongside the real extension in a test organization only.",
@@ -16,16 +16,6 @@
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "files": [
-    {
-      "path": "project-settings.dev.html",
-      "addressable": true
-    },
-    {
-      "path": "work-item-menu.dev.html",
-      "addressable": true
-    }
-  ],
   "contributions": [
     {
       "id": "project-settings",
@@ -34,8 +24,8 @@
         "ms.vss-web.project-admin-hub-group"
       ],
       "properties": {
-        "name": "Child Item Generator (Dev)",
-        "uri": "project-settings.dev.html"
+        "name": "Child Item Generator",
+        "uri": "/src/contributions/project-settings/index.dev.html"
       }
     },
     {
@@ -45,9 +35,9 @@
         "ms.vss-work-web.work-item-context-menu"
       ],
       "properties": {
-        "text": "Generate child items (Dev)",
+        "text": "Generate child items",
         "title": "Generate child items",
-        "uri": "work-item-menu.dev.html"
+        "uri": "/src/contributions/work-item-menu/index.dev.html"
       }
     }
   ]

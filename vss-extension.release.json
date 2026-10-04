@@ -17,11 +17,13 @@
   ],
   "files": [
     {
-      "path": "project-settings.html",
+      "path": "src/contributions/project-settings/index.html",
+      "packagePath": "project-settings.html",
       "addressable": true
     },
     {
-      "path": "work-item-menu.html",
+      "path": "src/contributions/work-item-menu/index.html",
+      "packagePath": "work-item-menu.html",
       "addressable": true
     },
     {
