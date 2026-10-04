@@ -11,26 +11,21 @@ import {
   MessageBarTitle,
   MessageBarActions,
   webLightTheme,
-  type Theme,
 } from "@fluentui/react-components";
 import { Dismiss24Regular } from "@fluentui/react-icons";
-
-interface IAppProps {
-  /** Fluent theme to render with, matching the host Azure DevOps theme. */
-  theme?: Theme;
-}
+import { RootComponentProps } from "../../components/Root";
 
 interface IAppState {
   errorMessage: string;
   isPanelOpen: boolean;
 }
 
-export class App extends React.Component<IAppProps, IAppState> {
-  static readonly defaultProps: IAppProps = {
+export class App extends React.Component<RootComponentProps, IAppState> {
+  static readonly defaultProps: RootComponentProps = {
     theme: webLightTheme
   };
-
-  constructor(props: IAppProps) {
+  
+  constructor(props: RootComponentProps) {
     super(props);
 
     this.state = {

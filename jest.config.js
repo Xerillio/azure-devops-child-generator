@@ -13,6 +13,8 @@ export default {
   collectCoverageFrom: [
     "src/**/*.{ts,tsx}",
     "!src/**/*.test.{ts,tsx}",
+    "!src/pages/project-settings/index.tsx",
+    "!src/pages/work-item-menu/index.tsx",
   ],
   coverageDirectory: "coverage",
 };
