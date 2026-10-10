@@ -36,6 +36,8 @@ Always use `npm run validate` to validate changes.
 - The extension currently adds the following pages/contributions:
   1. `src\contributions\project-settings`: a page in the project settings where you can configure templates and when the templates should be used to generate child items.
   2. `src\contributions\work-item-menu`: a context menu item on work items. When clicked it will generate child items based on the configured templates.
+- `src/models/template-config.ts` contains the per project storage data model containing rules/filters, that when matched should create child items from the related list of work item templates.
+- `src/storage/project-template-storage.ts` contains the CRUD operations for managing the project's configurations.
 
 ## Conventions
 
