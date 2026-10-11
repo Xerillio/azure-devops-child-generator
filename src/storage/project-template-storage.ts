@@ -140,10 +140,3 @@ export class AzureDevOpsProjectTemplateStorage implements ProjectTemplateStorage
         return true;
     }
 }
-
-export function createProjectTemplateStorage(
-    dataService: ProjectCollectionDataService,
-    projectId: string,
-): ProjectTemplateStorageContract {
-    return new AzureDevOpsProjectTemplateStorage(dataService, projectId);
-}
