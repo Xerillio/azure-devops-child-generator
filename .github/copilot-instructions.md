@@ -9,6 +9,7 @@ Azure DevOps extension (React 19 + TypeScript, Vite, Jest) that will generate ch
 - `npm run typecheck`, `npm run lint` (`lint:fix` to autofix)
 - `npm test` – Jest; single test: `npx jest src/contributions/project-settings/App.test.tsx -t "<test name>"`
 - `npm run test:coverage` – coverage + sonar report (used by CI, then SonarCloud)
+- `npm run lint` – lint if you want to run that separately
 - `npm run validate` – lint + typecheck + coverage + build
 - `npm run package` / `package:dev` – create `.vsix` with `tfx`
 - Husky pre-commit runs `npm test` then `npm run lint`.
