@@ -1,5 +1,11 @@
 # Azure DevOps Child Generator
 
+[![CI - build, test and sonar](https://github.com/Xerillio/azure-devops-child-generator/actions/workflows/build.yml/badge.svg)](https://github.com/Xerillio/azure-devops-child-generator/actions/workflows/build.yml)
+[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=Xerillio_azure-devops-child-generator&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Xerillio_azure-devops-child-generator)
+![GitHub License](https://img.shields.io/github/license/xerillio/azure-devops-child-generator) \
+![Sonar Coverage](https://img.shields.io/sonar/coverage/Xerillio_azure-devops-child-generator?server=https%3A%2F%2Fsonarcloud.io)
+![Sonar Tests](https://img.shields.io/sonar/tests/Xerillio_azure-devops-child-generator?server=https%3A%2F%2Fsonarcloud.io)
+
 This repository contains an Azure DevOps extension that will eventually generate child work
 items from reusable work item templates.
 
