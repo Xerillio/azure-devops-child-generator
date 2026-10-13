@@ -2,9 +2,9 @@
 
 [![CI - build, test and sonar](https://github.com/Xerillio/azure-devops-child-generator/actions/workflows/build.yml/badge.svg)](https://github.com/Xerillio/azure-devops-child-generator/actions/workflows/build.yml)
 [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=Xerillio_azure-devops-child-generator&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Xerillio_azure-devops-child-generator)
-![GitHub License](https://img.shields.io/github/license/xerillio/azure-devops-child-generator) \
-![Sonar Coverage](https://img.shields.io/sonar/coverage/Xerillio_azure-devops-child-generator?server=https%3A%2F%2Fsonarcloud.io)
-![Sonar Tests](https://img.shields.io/sonar/tests/Xerillio_azure-devops-child-generator?server=https%3A%2F%2Fsonarcloud.io)
+[![GitHub License](https://img.shields.io/github/license/xerillio/azure-devops-child-generator)](https://github.com/Xerillio/azure-devops-child-generator/blob/main/LICENSE) \
+[![Sonar Coverage](https://img.shields.io/sonar/coverage/Xerillio_azure-devops-child-generator?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/project/overview?id=Xerillio_azure-devops-child-generator)
+[![Sonar Tests](https://img.shields.io/sonar/tests/Xerillio_azure-devops-child-generator?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/component_measures?metric=tests&id=Xerillio_azure-devops-child-generator)
 
 This repository contains an Azure DevOps extension that will eventually generate child work
 items from reusable work item templates.
